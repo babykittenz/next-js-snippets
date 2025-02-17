@@ -30,6 +30,7 @@ export default async function SnippetEditPage(props: SnippetEditPageProps) {
 export async function generateStaticParams() {
   const snippets = await db.snippet.findMany();
   return snippets.map((snippet) => ({
+    // our ids are numbers so we convert them to strings
     id: snippet.id.toString(),
   }));
 }
